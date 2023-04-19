@@ -11,7 +11,7 @@ class TelaInicial:
 
     def valoresTxt(self):
         self.botaoSair.config(state =tk.DISABLED)
-        text = funcoes.criarDados(self,pagina=self.root,TxPosX=self.TxPosX,TxPosY=self.TxPosY,TxRGB=self.TxRGB,TxHex=self.TxHex,TxQtdTelas=self.TxQtdTelas,TxData=self.TxData,TxColor=self.TxColor)
+        text = funcoes.criarDados(self,pagina=self.root,TxPosX=self.TxPosX,TxPosY=self.TxPosY,TxRGB=self.TxRGB,TxHex=self.TxHex,TxQtdTelas=self.TxQtdTelas,TxData=self.TxData,TxColor=self.TxColor,Txtnome=self.Txnome)
         self.botaoSair.config(state =tk.NORMAL)
        
        
@@ -21,7 +21,7 @@ class TelaInicial:
         #criar tela
         self.root = tk.Tk()
         self.root.title('Aponte o Mouse')
-        self.root.geometry('600x400+100+50')
+        self.root.geometry('600x430+100+50')
         self.root['bg'] = '#494646'
         self.root.iconphoto(True, tk.PhotoImage(file=r'.\\arquivos\\MB.png'))
 
@@ -52,16 +52,20 @@ class TelaInicial:
         #frame cores
         fCores = tk.LabelFrame(self.root, text="Cores", bg="#000000", fg="white")
         fCores.grid(column=0, row=1, padx=20, pady=20)
-        LblRGB = tk.Label(fCores,text='Cores RGB ',justify='left', bg="#000000", fg="white",font=('arial',14,'bold'))
-        LblRGB.grid(column=0,row=0, padx=10, pady=10)
+        Lblnome = tk.Label(fCores,text='Nome',justify='left', bg="#000000", fg="white",font=('arial',12,'bold'))
+        Lblnome.grid(column=0,row=0, padx=10, pady=10)
+        self.Txnome=tk.Entry(fCores,width=20,justify='center',font=('arial',8,'bold'))
+        self.Txnome.grid(column=1,row=0, padx=10, pady=10)
+        LblRGB = tk.Label(fCores,text='Cores RGB ',justify='left', bg="#000000", fg="white",font=('arial',12,'bold'))
+        LblRGB.grid(column=0,row=1, padx=10, pady=10)
         self.TxRGB=tk.Entry(fCores,width=10,justify='center',font=('arial',8,'bold'))
-        self.TxRGB.grid(column=1,row=0, padx=10, pady=10)
-        LblHex= tk.Label(fCores,text='Hexadecimal ',justify='left', bg="#000000", fg="white",font=('arial',14,'bold'))
-        LblHex.grid(column=0,row=1, padx=10, pady=10)
+        self.TxRGB.grid(column=1,row=1, padx=10, pady=10)
+        LblHex= tk.Label(fCores,text='Hexadecimal ',justify='left', bg="#000000", fg="white",font=('arial',12,'bold'))
+        LblHex.grid(column=0,row=2, padx=10, pady=10)
         self.TxHex=tk.Entry(fCores,width=10,justify='center',font=('arial',8,'bold'))
-        self.TxHex.grid(column=1,row=1, padx=10, pady=10)
+        self.TxHex.grid(column=1,row=2, padx=10, pady=10)
         self.TxColor=tk.Entry(fCores,width=20,justify='center',font=('arial',14,'bold'))
-        self.TxColor.grid(columnspan=2,row=2, padx=10, pady=10)
+        self.TxColor.grid(columnspan=2,row=3, padx=10, pady=10)
 
         #frame ajuda
         fAjudas = tk.LabelFrame(self.root, text="Informação de Telas", bg="#000000", fg="white")
@@ -71,10 +75,10 @@ class TelaInicial:
         lAjudas.grid(column=0,row=0, padx=10, pady=15)
 
         self.botaoAbre = tk.Button(self.root, text="Descongelar",fg='white', width=12,bg='green',command=self.valoresTxt,font=('arial',14,'bold'))
-        self.botaoAbre.place(relx=0.04,rely=0.88)
+        self.botaoAbre.place(relx=0.04,rely=0.9)
 
         self.botaoSair = tk.Button(self.root, text="Sair",fg='white',bg='green', width=12,command=self.sair,font=('arial',14,'bold'))
-        self.botaoSair.place(relx=0.5,rely=0.88)
+        self.botaoSair.place(relx=0.5,rely=0.9)
         
         self.valoresTxt()
 
